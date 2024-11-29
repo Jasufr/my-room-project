@@ -35,7 +35,7 @@ gltfLoader.setDRACOLoader(dracoLoader)
 /**
  * Textures
  */
-const bakedTexture = textureLoader.load('bakedTest.jpg')
+const bakedTexture = textureLoader.load('Untitled.jpg')
 
 /**
  * Materials
@@ -43,12 +43,13 @@ const bakedTexture = textureLoader.load('bakedTest.jpg')
 // Baked material
 const bakedMaterial = new THREE.MeshBasicMaterial({ map: bakedTexture })
 bakedTexture.flipY = false
+bakedTexture.encoding = THREE.SRGBColorSpace
 
 /**
  * Model
  */
 gltfLoader.load(
-  'myroom.glb',
+  'myroomTest.glb',
   (gltf) => {
     gltf.scene.traverse((child) => {
       child.material = bakedMaterial
