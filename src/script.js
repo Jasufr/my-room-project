@@ -36,24 +36,31 @@ gltfLoader.setDRACOLoader(dracoLoader)
  * Textures
  */
 const bakedTexture = textureLoader.load('Untitled.jpg')
+const bigObjectsTexture = textureLoader.load('bigObjectsTexture.jpg')
 
 /**
  * Materials
  */
 // Baked material
-const bakedMaterial = new THREE.MeshBasicMaterial({ map: bakedTexture })
-bakedTexture.flipY = false
-bakedTexture.encoding = THREE.SRGBColorSpace
+// const bakedMaterial = new THREE.MeshBasicMaterial({ map: bakedTexture })
+// bakedTexture.flipY = false
+// bakedTexture.encoding = THREE.SRGBColorSpace
+
+const bigObjectsMaterial = new THREE.MeshBasicMaterial({ map: bigObjectsTexture})
+bigObjectsMaterial.flipY = false
+bigObjectsMaterial.encoding = THREE.SRGBColorSpace
 
 /**
  * Model
  */
 gltfLoader.load(
-  'myroomTest.glb',
+  'myroomRenamed.glb',
   (gltf) => {
     gltf.scene.traverse((child) => {
-      child.material = bakedMaterial
-    })
+      // child.material = bigObjectsMaterial
+      if (child.name.includes('bigObject')) {
+        child.material = bigObjectsMaterial;
+    }})
     scene.add(gltf.scene)
   }
 )
