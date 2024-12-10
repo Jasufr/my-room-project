@@ -66,10 +66,10 @@ bigObjectsMaterial.encoding = THREE.SRGBColorSpace
 // )
 
 gltfLoader.load(
-  'myroomBigObjects.glb',
+  'myroom.glb',
   (gltf) => {
     gltf.scene.traverse((child) => {
-      child.material = bigObjectsMaterial;
+      child.material = bakedMaterial;
     })
     scene.add(gltf.scene)
   }
