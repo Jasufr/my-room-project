@@ -36,7 +36,7 @@ gltfLoader.setDRACOLoader(dracoLoader)
  * Textures
  */
 const bakedTexture = textureLoader.load('Untitled.jpg')
-const bigObjectsTexture = textureLoader.load('bigObjectsTexture.jpg')
+const bigObjectsTexture = textureLoader.load('bigtest.jpg')
 
 /**
  * Materials
@@ -66,7 +66,7 @@ bigObjectsMaterial.encoding = THREE.SRGBColorSpace
 // )
 
 gltfLoader.load(
-  'myroomRenamed.glb',
+  'myroomBigObjects.glb',
   (gltf) => {
     gltf.scene.traverse((child) => {
       child.material = bigObjectsMaterial;
